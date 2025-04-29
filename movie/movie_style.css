@@ -1,0 +1,167 @@
+:root {
+    --primary: #0f1016;
+    --secondary: #1a1c2b;
+    --accent: #00a8ff;
+    --text: #ffffff;
+    --text-secondary: #b3b3b3;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--primary);
+    color: var(--text);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: var(--primary);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a.active {
+    color: var(--accent);
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* Series page specific styles */
+.page-header {
+    padding: 150px 50px 50px;
+    background: linear-gradient(135deg, var(--accent) 0%, #0077b6 100%);
+    text-align: center;
+}
+
+.page-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-box {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: none;
+    font-size: 18px;
+    background-color: rgba(255,255,255,0.9);
+}
+
+.content-section {
+    padding: 50px;
+}
+
+.series-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.series-card {
+    background-color: var(--secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.series-card:hover {
+    transform: translateY(-10px);
+}
+
+.series-poster {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.series-info {
+    padding: 15px;
+}
+
+.series-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.series-meta {
+    font-size: 14px;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+}
+
+.series-badge {
+    background-color: var(--accent);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.page-btn {
+    padding: 10px 15px;
+    background-color: var(--secondary);
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.page-btn:hover {
+    background-color: var(--accent);
+}
+
+.page-btn.active {
+    background-color: var(--accent);
+}
+
+.footer {
+    background-color: var(--secondary);
+    padding: 50px;
+    text-align: center;
+    margin-top: 50px;
+}
