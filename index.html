@@ -3,58 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CinePure | Minimal Movie Streaming</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>CineVerse | TV Series</title>
+    <style>
+        /* Shared styles */
+        :root {
+            --primary: #0f1016;
+            --secondary: #1a1c2b;
+            --accent: #00a8ff;
+            --text: #ffffff;
+            --text-secondary: #b3b3b3;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: var(--primary);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a.active {
+            color: var(--accent);
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Series page specific styles */
+        .page-header {
+            padding: 150px 50px 50px;
+            background: linear-gradient(135deg, var(--accent) 0%, #0077b6 100%);
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: none;
+            font-size: 18px;
+            background-color: rgba(255,255,255,0.9);
+        }
+        
+        .content-section {
+            padding: 50px;
+        }
+        
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+        
+        .series-card {
+            background-color: var(--secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .series-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .series-poster {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .series-info {
+            padding: 15px;
+        }
+        
+        .series-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .series-meta {
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .series-badge {
+            background-color: var(--accent);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+        
+        .page-btn {
+            padding: 10px 15px;
+            background-color: var(--secondary);
+            color: var(--text);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .page-btn:hover {
+            background-color: var(--accent);
+        }
+        
+        .page-btn.active {
+            background-color: var(--accent);
+        }
+        
+        .footer {
+            background-color: var(--secondary);
+            padding: 50px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">CinePure</div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Movies</a></li>
-                    <li><a href="#">TV Shows</a></li>
-                    <li><a href="#">My List</a></li>
-                </ul>
-            </nav>
-            <div class="search-container">
-                <input type="text" placeholder="Search movies..." id="search-input">
-                <button id="search-btn"><i class="fas fa-search">Button</i></button>
-            </div>
+    <nav class="navbar">
+        <div class="logo">CineVerse</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="series.html" class="active">TV Series</a>
+            <a href="anime.html">Anime</a>
+        </div>
+    </nav>
+    
+    <header class="page-header">
+        <h1 class="page-title">TV Series</h1>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search series...">
         </div>
     </header>
-
-    <main class="main-content">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>How To Train Your Dragon: The Hidden World</h1>
-                <p>When a new threat emerges, Hiccup and Toothless must leave their home and journey to a hidden world thought only to exist in myth.</p>
-                <a href="movie.html" class="btn">Watch Now</a>
+    
+    <section class="content-section">
+        <div class="series-grid">
+            <!-- 40 series cards would be dynamically generated -->
+            <div class="series-card">
+                <img src="https://via.placeholder.com/220x320" alt="Series Poster" class="series-poster">
+                <div class="series-info">
+                    <div class="series-title">Series Title 1</div>
+                    <div class="series-meta">
+                        <span>2023</span>
+                        <span class="series-badge">S2 E5</span>
+                    </div>
+                </div>
             </div>
-        </section>
-
-        <section class="movie-section">
-            <h2 class="section-title">Popular Movies</h2>
-            <div class="movie-grid" id="movie-grid">
-                <!-- Movies will be loaded here via JavaScript -->
-            </div>
-        </section>
-    </main>
-
+            <!-- Repeat for other series -->
+        </div>
+        
+        <div class="pagination">
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">5</button>
+            <button class="page-btn">Next</button>
+        </div>
+    </section>
+    
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2023 CinePure. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-            </div>
+        <div class="footer-links">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">DMCA</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="copyright">
+            &copy; 2023 CineVerse. All rights reserved.
         </div>
     </footer>
-
-    <script src="js/main.js"></script>
 </body>
 </html>
