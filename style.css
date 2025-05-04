@@ -1,16 +1,16 @@
 /* Dark Theme Variables */
 :root {
-    --primary: #6e44ff; /* Purple */
+    --primary: #6e44ff;
     --primary-dark: #4a2dbb;
     --primary-light: #9d7aff;
-    --secondary: #00d4ff; /* Teal */
+    --secondary: #00d4ff;
     --dark: #121212;
     --dark-gray: #1e1e1e;
     --medium-gray: #2d2d2d;
     --light-gray: #3d3d3d;
     --text: #e0e0e0;
     --text-secondary: #a0a0a0;
-    --accent: #ff4d7d; /* Pink */
+    --accent: #ff4d7d;
 }
 
 /* Base Styles */
@@ -45,9 +45,14 @@ body {
     z-index: 100;
 }
 
+.dark-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .dark-header h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -57,10 +62,7 @@ body {
 .dark-header nav ul {
     display: flex;
     list-style: none;
-}
-
-.dark-header nav ul li {
-    margin-right: 1.5rem;
+    gap: 1.5rem;
 }
 
 .dark-header nav ul li a {
@@ -90,7 +92,41 @@ body {
     background-color: var(--secondary);
 }
 
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://via.placeholder.com/1200x400') center/cover no-repeat;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.hero-content {
+    padding: 2rem;
+    max-width: 600px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
 /* Category Buttons */
+.section-title {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+    color: var(--text);
+}
+
 .category-buttons {
     margin: 3rem 0;
 }
@@ -146,35 +182,88 @@ body {
 .dark-footer {
     background-color: var(--dark-gray);
     color: var(--text);
-    padding: 2rem 0;
-    text-align: center;
+    padding: 3rem 0;
     margin-top: 3rem;
     border-top: 1px solid var(--light-gray);
 }
 
-.dark-footer .social-links {
-    margin-top: 1rem;
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.dark-footer .social-links a {
-    color: var(--text-secondary);
-    margin: 0 10px;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.dark-footer .social-links a:hover {
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
     color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--primary-light);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--primary-light);
+}
+
+.copyright {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--light-gray);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .button-grid {
-        grid-template-columns: 1fr 1fr;
+    .dark-header .container {
+        flex-direction: column;
+        gap: 1rem;
     }
     
-    .movies-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    .dark-header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .hero {
+        height: 300px;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .button-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -183,12 +272,11 @@ body {
         grid-template-columns: 1fr;
     }
     
-    .dark-header nav ul {
-        flex-wrap: wrap;
-        gap: 0.5rem;
+    .hero {
+        height: 250px;
     }
     
-    .dark-header nav ul li {
-        margin: 0;
+    .hero h2 {
+        font-size: 1.8rem;
     }
 }
